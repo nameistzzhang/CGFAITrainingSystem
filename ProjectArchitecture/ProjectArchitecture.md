@@ -13,3 +13,23 @@ The pic below is the structure of this project, including the name of the module
 <div align=center>
 <img src="./README_imag/project_structure.png" width="700">
 </div>
+
+In the above pic, the GUI module will be constructed with QT, which will work as a initializer for the whole system. The Unity module will be constructed with Unity and C# to display the combat scene. The Combat Environment including the Damage Judge module and the Dynamic module will be constructed with cpp, and at last the algorithms will be constructed with Pytorch or Python.
+
+## The Development Sequence
+
+The development sequence of this project is shown below:
+
+<div align=center>
+<img src="./README_imag/development_sequence.png" width="700">
+</div>
+
+We can see from the above graph that a lot of work can be done in parallel, which will save a lot of time.
+
+## Development documentation
+
+- ***[MainEnvironment](../MainEnvironment/MainEnvironment_README.md)***
+- ***[Dynamic](../Dynamic/Dynamic_README.md)***
+- ***[Damage Judge](../Damage_Judge/Damage_Judge_README.md)***
+- ***[AI Algorithm](../AI_Algorithm/AI_Algorithm_README.md)***
+- ***[Normal Algorithm](../Normal_Algorithm/Normal_Algorithm_README.md)***
