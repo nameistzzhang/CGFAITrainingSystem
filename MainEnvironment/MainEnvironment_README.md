@@ -11,7 +11,7 @@ The Main Environment shall work within a tick loop. In each tick, the Entities i
 Using a pic to describe the process : 
 
 <div align=center>
-<img src="./README_imag/tick_process.png" width="700">
+<img src="./README_imag/tick_process.png" width="70%">
 </div>
 
 ## Main Environment Structure
@@ -25,9 +25,15 @@ And thus based on the process, the Main Environment shall contain these base cla
 - **Sensor** : The Base Class for the Sensors
 - **Controller** : The Base Class for the Controllers
 - **Actuator** : The Base Class for the Actuators
+- **Repo** : Repos are the data storage for the Entities
 - **DamageJudge** : The Class to Judge the Damage, and the end of the Simulation
 - **SimulationManager** : The Class to manage the whole process
 - **DataRecorder** : The Class to record the data for the Unity and the AI algorithm
 
 Using the UML to describe the structure :
 
+<div align=center>
+<img src="./README_imag/main_environment_UML.png" width="100%">
+</div>
+
+In the following parts, we will introduce the classes one by one.

@@ -11,7 +11,7 @@ Because the system is aimed to train red side pilots, so the agents will be usin
 The pic below is the structure of this project, including the name of the modules and the relationship between them.
 
 <div align=center>
-<img src="./README_imag/project_structure.png" width="700">
+<img src="./README_imag/project_structure.png" width="70%">
 </div>
 
 In the above pic, the GUI module will be constructed with QT, which will work as a initializer for the whole system. The Unity module will be constructed with Unity and C# to display the combat scene. The Combat Environment including the Damage Judge module and the Dynamic module will be constructed with cpp, and at last the algorithms will be constructed with Pytorch or Python.
@@ -21,7 +21,7 @@ In the above pic, the GUI module will be constructed with QT, which will work as
 The development sequence of this project is shown below:
 
 <div align=center>
-<img src="./README_imag/development_sequence.png" width="700">
+<img src="./README_imag/development_sequence.png" width="80%">
 </div>
 
 We can see from the above graph that a lot of work can be done in parallel, which will save a lot of time.
