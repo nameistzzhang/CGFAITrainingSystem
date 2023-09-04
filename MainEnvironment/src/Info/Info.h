@@ -27,4 +27,17 @@ class SelfInfo {
         SelfInfo& operator=(const SelfInfo&);    // The copy assignment operator of the `SelfInfo` class
 };
 
+class TaskInfo {
+    public:
+        std::vector<Task> tasklist;    // The task list of the entity
+
+    public:
+        TaskInfo() = default;    // The default constructor of the `TaskInfo` class
+        ~TaskInfo() = default;    // The default destructor of the `TaskInfo` class
+
+        TaskInfo(const TaskInfo&);    // The copy constructor of the `TaskInfo` class
+
+        TaskInfo& operator=(const TaskInfo&);    // The copy assignment operator of the `TaskInfo` class
+};
+
 # endif // INFO_H
