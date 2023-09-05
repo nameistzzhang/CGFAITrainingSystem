@@ -48,3 +48,27 @@ TaskInfo& TaskInfo::operator = (const TaskInfo& _taskinfo) {
     this->tasklist = _taskinfo.tasklist;
     return *this;
 }
+
+/// @brief The copy constructor of the `RadarInfo` class.
+/// @param _radarinfo
+RadarInfo::RadarInfo(const RadarInfo& _radarinfo) {
+    this->name = _radarinfo.name;
+    this->type = _radarinfo.type;
+    this->longitude = _radarinfo.longitude;
+    this->latitude = _radarinfo.latitude;
+    this->altitude = _radarinfo.altitude;
+    this->speed = _radarinfo.speed;
+}
+
+/// @brief The operator = of the `RadarInfo` class.
+/// @param _radarinfo
+/// @return
+RadarInfo& RadarInfo::operator = (const RadarInfo& _radarinfo) {
+    this->name = _radarinfo.name;
+    this->type = _radarinfo.type;
+    this->longitude = _radarinfo.longitude;
+    this->latitude = _radarinfo.latitude;
+    this->altitude = _radarinfo.altitude;
+    this->speed = _radarinfo.speed;
+    return *this;
+}

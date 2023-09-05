@@ -27,6 +27,7 @@ class SelfInfo {
         SelfInfo& operator=(const SelfInfo&);    // The copy assignment operator of the `SelfInfo` class
 };
 
+/// @brief `TaskInfo` class is the container used to store the info of the task.
 class TaskInfo {
     public:
         std::vector<Task> tasklist;    // The task list of the entity
@@ -38,6 +39,25 @@ class TaskInfo {
         TaskInfo(const TaskInfo&);    // The copy constructor of the `TaskInfo` class
 
         TaskInfo& operator=(const TaskInfo&);    // The copy assignment operator of the `TaskInfo` class
+};
+
+/// @brief `RadarInfo` class is the container used to store the info of the radar.
+class RadarInfo {
+    public:
+        Name name;    // The name of the radar entity
+        Type type;    // The type of the radar entity
+        Longitude longitude;    // The longitude of the radar entity
+        Latitude latitude;    // The latitude of the radar entity
+        Altitude altitude;    // The altitude of the radar entity
+        Speed speed;    // The speed of the radar entity
+
+    public:
+        RadarInfo() = default;    // The default constructor of the `RadarInfo` class
+        ~RadarInfo() = default;    // The default destructor of the `RadarInfo` class
+
+        RadarInfo(const RadarInfo&);    // The copy constructor of the `RadarInfo` class
+
+        RadarInfo& operator=(const RadarInfo&);    // The copy assignment operator of the `RadarInfo` class
 };
 
 # endif // INFO_H
