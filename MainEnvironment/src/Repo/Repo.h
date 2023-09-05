@@ -56,6 +56,7 @@ class RafaleActionRepo : public ActionRepo {
 
 };
 
+/// @brief `Repo` is the Base class of the Repos
 class Repo {
     public:
         MainRepo main_repo;    // The main repo
@@ -70,6 +71,7 @@ class Repo {
         Repo(const Repo&) = delete; // Ban copy constructor
 };
 
+/// @brief `RafaleRepo` is the Repo of Rafale Fighter
 class RafaleRepo : public Repo {
     public:
         RafaleRepo() {action_repo = new RafaleActionRepo;}   // The constructor
