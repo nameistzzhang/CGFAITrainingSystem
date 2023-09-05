@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\EricDoc\Study\Projects\CGFAITrainingSystem\Test\TestMain\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\EricDoc\Study\Projects\CGFAITrainingSystem\Test\TestMain\Lib\add.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\EricDoc\Study\Projects\CGFAITrainingSystem\Test\TestMain\Lib\minus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\EricDoc\Study\Projects\CGFAITrainingSystem\Test\TestMain\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D1CF99BA-025D-3D0F-BCF6-EB206C8FAD38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A8674326-F574-3002-87E3-16DFAE98D175}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

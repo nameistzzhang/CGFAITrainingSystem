@@ -1,0 +1,10 @@
+^D:\ERICDOC\STUDY\PROJECTS\CGFAITRAININGSYSTEM\TEST\TESTLIB\CMAKELISTS.TXT
+setlocal
+D:\Software\CMake\cmake\bin\cmake.exe -SD:/EricDoc/Study/Projects/CGFAITrainingSystem/Test/TestLib -BD:/EricDoc/Study/Projects/CGFAITrainingSystem/Test/TestLib/build --check-stamp-file D:/EricDoc/Study/Projects/CGFAITrainingSystem/Test/TestLib/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

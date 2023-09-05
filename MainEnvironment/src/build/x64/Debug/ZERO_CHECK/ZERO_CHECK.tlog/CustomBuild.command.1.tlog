@@ -1,0 +1,10 @@
+^D:\ERICDOC\STUDY\PROJECTS\CGFAITRAININGSYSTEM\MAINENVIRONMENT\SRC\BUILD\CMAKEFILES\3F1FA4FDAADBAC9CB1222CC55F8C779C\GENERATE.STAMP.RULE
+setlocal
+D:\Software\CMake\cmake\bin\cmake.exe -SD:/EricDoc/Study/Projects/CGFAITrainingSystem/MainEnvironment/src -BD:/EricDoc/Study/Projects/CGFAITrainingSystem/MainEnvironment/src/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/EricDoc/Study/Projects/CGFAITrainingSystem/MainEnvironment/src/build/TestMain.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

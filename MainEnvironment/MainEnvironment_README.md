@@ -36,4 +36,9 @@ Using the UML to describe the structure :
 <img src="./README_imag/main_environment_UML.png" width="100%">
 </div>
 
-In the following parts, we will introduce the classes one by one.
+## Development Log
+
+> ***<font color=green>2023.09.05</font>***
+
+- Finish the *Info.h*, the *Types.h* and the *Info.cpp* with test. Including the `SelfInfo` class, the `TaskInfo` class and the `RadarInfo` class, ***including the test***
+- Build the `Repo` class and its components in the *Repo.h*. Including `MainRepo`, `RadarRepo`, `ActuatorRepo`, `ActionRepo`, `RafaleActionRepo`, `Repo`, `RafaleRepo`. The `RafaleActionRepo` is not completed yet because the Dynamic model is not ready. All these ***Including the test***

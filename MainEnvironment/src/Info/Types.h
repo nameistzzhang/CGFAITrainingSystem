@@ -42,4 +42,16 @@ typedef struct {
         Altitude taskaltitude;
 } Task;
 
+/// @brief `Movement` class is the container used to store the info of the movement
+typedef struct {
+    public:
+        Longitude movelongitude;
+        Latitude movelatitude;
+        Altitude movealtitude;
+        Pitch movepitch;
+        Roll moveroll;
+        Direction movedirection;
+        Speed movespeed;
+} Movement;
+
 # endif // TYPES_H

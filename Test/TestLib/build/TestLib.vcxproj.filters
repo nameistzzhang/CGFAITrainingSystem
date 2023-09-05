@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\EricDoc\Study\Projects\CGFAITrainingSystem\Test\TestLib\Src\add.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\EricDoc\Study\Projects\CGFAITrainingSystem\Test\TestLib\Src\minus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\EricDoc\Study\Projects\CGFAITrainingSystem\Test\TestLib\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E80713D2-EE67-320D-8F23-0748DBEE8D9F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
