@@ -1,3 +1,0 @@
-D:/EricDoc/Study/Projects/CGFAITrainingSystem/MainEnvironment/src/build/CMakeFiles/Test.dir
-D:/EricDoc/Study/Projects/CGFAITrainingSystem/MainEnvironment/src/build/CMakeFiles/ALL_BUILD.dir
-D:/EricDoc/Study/Projects/CGFAITrainingSystem/MainEnvironment/src/build/CMakeFiles/ZERO_CHECK.dir
