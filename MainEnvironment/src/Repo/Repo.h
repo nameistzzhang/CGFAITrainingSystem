@@ -66,6 +66,7 @@ class Repo {
 
     public:
         Repo();   // The constructor
+        virtual ~Repo() = default;   // The default destructor
 
         Repo(const Repo&) = delete; // Ban copy constructor
 };

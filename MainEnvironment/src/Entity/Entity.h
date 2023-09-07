@@ -22,6 +22,7 @@ class Entity {
     
     public:
         Entity();
+        virtual ~Entity() = default;
 };
 
 /// @brief `Rafale` is the Entity of the Rafale Fighter

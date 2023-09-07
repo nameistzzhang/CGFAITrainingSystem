@@ -1,16 +1,18 @@
 # ifndef ENTITYLIST_H
 # define ENTITYLIST_H
 
+# include "../Info/Types.h"
+
 # include <vector>
 # include <unordered_map>
-# include "../Info/Types.h"
+# include <iostream>
 
 class Entity;
 
 class EntityList {
     public:
         static EntityList* createEntityListInstance();    // Create the EntityList instance
-        ~EntityList() = default;    // TODO
+        ~EntityList();    // TODO
     
     private:
         static EntityList* entity_list_obj;     // The EntityList instance
@@ -22,9 +24,7 @@ class EntityList {
         EntityList& operator=(const EntityList&) {};
 
     private:
-
         // This class is used to delete the EntityList instance when the program ends
-
         class DeleteEntityListInstance {
             public:
                 ~DeleteEntityListInstance () {
@@ -43,12 +43,12 @@ class EntityList {
         std::unordered_map<Name, int> entity_map;    // The map of all the entities
 
     public:
-        // void clearList();
-        // Entity* at(int _index);
-        // Entity* at(Name _name);
-        // void deleteEntity(int _index);
-        // void deleteEntity(Name _name);
-        // void addEntity(Entity* _entity);
+        void clearList();
+        Entity* at(int _index);
+        Entity* at(Name _name);
+        void deleteEntity(int _index);
+        void deleteEntity(Name _name);
+        void addEntity(Entity* _entity);
 };
 
 # endif // ENTITYLIST_H

@@ -3,6 +3,8 @@
 
 # include "Types.h"
 
+
+
 /// @brief `SelfInfo` class is the container used to store the info of the entity itself.
 class SelfInfo {
     public:
