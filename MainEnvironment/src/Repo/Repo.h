@@ -65,8 +65,7 @@ class Repo {
         ActionRepo* action_repo; // The action repo
 
     public:
-        Repo() {action_repo = nullptr;}   // The constructor
-        virtual ~Repo() {delete action_repo;}  // The virtual destructor
+        Repo();   // The constructor
 
         Repo(const Repo&) = delete; // Ban copy constructor
 };
@@ -74,8 +73,8 @@ class Repo {
 /// @brief `RafaleRepo` is the Repo of Rafale Fighter
 class RafaleRepo : public Repo {
     public:
-        RafaleRepo() {action_repo = new RafaleActionRepo;}   // The constructor
-        ~RafaleRepo() = default;   // The default destructor
+        RafaleRepo();   // The constructor
+        ~RafaleRepo();   // The default destructor
 
         RafaleRepo(const RafaleRepo&) = delete; // Ban copy constructor
 };

@@ -2,6 +2,8 @@
 # include "../Repo/Repo.h"
 # include "Sensor.h"
 
+# include <iostream>
+
 
 
 /// @brief The constructor of the `Sensor`
@@ -13,7 +15,6 @@ Sensor::Sensor() {
 /// @brief The destructor of the `Sensor`
 Sensor::~Sensor() {
     if (repo != nullptr) {
-        delete repo;
         repo = nullptr;
     }
 }

@@ -46,3 +46,8 @@ Using the UML to describe the structure :
 > ***<font color=green>2023.09.06</font>***
 
 - Working on the *Sensor.h*, and create class `Senosr`, `AirBorneRadar`, while working on their source files: *Sensor.cpp* and *AirBorneRadar*. Plus, to help contruct the Sensor, create the `EntityList` and `Entity`, ***Not Including the test***. The Sensor part ***Including the test***
+
+> ***<font color=green>2023.09.07</font>***
+
+- Working on *Controller.h* and *Actuator.h*, finish the basic functions ***Including the test***
+- Working on the *Entity.h* and finished its basic functions
