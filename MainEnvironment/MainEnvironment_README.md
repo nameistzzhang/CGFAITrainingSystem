@@ -50,4 +50,5 @@ Using the UML to describe the structure :
 > ***<font color=green>2023.09.07</font>***
 
 - Working on *Controller.h* and *Actuator.h*, finish the basic functions ***Including the test***
-- Working on the *Entity.h* and finished its basic functions
+- Working on the *Entity.h* and finished its basic functions ***Including the test***
+- Working on the *EntityList.h* and finished its basic functions ***Including the test***
