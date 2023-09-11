@@ -2,56 +2,59 @@ import gym
 import time
 import numpy as np
 import pandas as pd
+import torch
+from Model import PolicyNet
 
-env = gym.make('LunarLander-v2')
 
-# Initiliaze the environment
+# This class is to interact with the environment
+class EnvAdapterForLunarLander:
+    def __init__(self):
+        self._env = gym.make("LunarLander-v2")  # This is the environment
+        self.observation = (
+            self._env.reset()
+        )  # This is the init observation of the environment
+        self.titles = {
+            "observation": [],
+            "reward": [],
+            "action": [],
+        }  # This is the titles of the RunData.csv
+        self.policy_net = (
+            PolicyNet()
+        )  # This is the policy network and loading its parameters
+        self.policy_net.load_state_dict(torch.load("./Parameters/PolicyNet.pt"))
+        self.policy_net.eval()
 
-observation = env.reset()
+    # This function is to initialize the title of the RunData.csv
+    def initRunData(self):
+        df = pd.DataFrame(self.titles)  # Create a dataframe
+        df.to_csv("RunData.csv", index=False)  # Save the dataframe to RunData.csv
 
-titles = {
-    'observation' : [], 
-    'reward' : [],
-    'done' : [],
-    'info' : []
-}
+    # This function is to run one step of the environment
+    def runStep(self, video):
+        action = self.policy_net.actionSelector(
+            self.policy_net(self.policy_net.formInput(self.observation))
+        )  # run the forward function of the policy network to get the action
+        observation_next, reward, done, info = self._env.step(
+            action
+        )  # interact with the environment
+        rowdata = {
+            "observation": [np.array(self.observation)],
+            "reward": [np.array(reward)],
+            "action": [np.array(action)],
+        }  # obtain the row data of the observation, reward and action
+        self.observation = (
+            observation_next  # update the observation (statement transition)
+        )
+        df = pd.DataFrame(rowdata)
+        df.to_csv(
+            "RunData.csv", mode="a", header=False, index=False
+        )  # save the row data to RunData.csv
 
-# put the titles into the RunData.csv
+        if video:
+            self._env.render()  # render the environment
+            time.sleep(0.01)  # pause 0.01 second
+            # print(self.policy_net(self.policy_net.formInput(self.observation)))
+        return done
 
-df = pd.DataFrame(titles)
-df.to_csv('RunData.csv', index=False)
-
-for i in range(1) :
-
-    # sample a random action from the environment's action space
-
-    random_action = env.action_space.sample()
-
-    # get the info from the environment after taking a step with the sampled action
-
-    observation1, reward, done, info = env.step(random_action)
-
-    # form a row of data to be put into the RunData.csv
-
-    rowdata = {
-        'observation' : [np.array(observation)],
-        'reward' : [np.array(reward)],
-        'done' : [done],
-        'info' : [info]
-    }
-
-    observation = observation1
-
-    # add the row of data into the RunData.csv
-
-    time.sleep(0.01)
-
-    df = pd.DataFrame(rowdata)
-    df.to_csv('RunData.csv', mode='a', header=False, index=False)
-
-    if done :
-        observation = env.reset()
-
-env.close()
-
-df_input = pd.read_csv('RunData.csv')
+    def closeEnv(self) :
+        self._env.close()
