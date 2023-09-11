@@ -21,6 +21,7 @@ class PolicyGradient :
 
         self._state_list = []
         self._action_list = []
+        self._reward_list = deque()
         self._return_list = deque()
         self._total_reward = 0
 
@@ -55,12 +56,13 @@ class PolicyGradient :
         cur_return = 0
         for i in reward_list[::-1] :
             i = float(i) / 100
+            self._reward_list.appendleft(i)
             self._total_reward += i
             cur_return = i + GAMMA * cur_return
             self._return_list.appendleft(cur_return)
-            # print(cur_return)
 
         self._return_list = np.array(self._return_list)
+
     
     # Based on the Info refresh the policy network
     def learn(self) :
@@ -81,6 +83,7 @@ class PolicyGradient :
 
             # loss function
             cur_loss = - torch.log(cur_action_prob) * (self._return_list[i] - baseline)
+
             loss += cur_loss
 
         # backward
@@ -90,11 +93,8 @@ class PolicyGradient :
         optimizer = optim.Adam(self._policy_net.parameters(), lr=LR)
         optimizer.zero_grad()
         loss.backward()
-        # print("linear weight gradient : ", self._policy_net.fc1.weight.grad)
 
         optimizer.step()
-
-        time.sleep(1)
 
         self._policy_net.saveNewParam()
 

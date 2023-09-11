@@ -68,7 +68,7 @@ class PolicyNet(nn.Module):
         # x = F.relu(self.fc8(x))
         # x = F.relu(self.fc9(x))
         # print("before softmax : ", x)
-        x = F.softmax(x)
+        x = F.softmax(x, dim=1)
         return x
 
     # select action according to the output of the policy network
