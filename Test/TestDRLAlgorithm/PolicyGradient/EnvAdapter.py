@@ -32,7 +32,7 @@ class EnvAdapterForLunarLander:
     # This function is to run one step of the environment
     def runStep(self, video):
         action = self.policy_net.actionSelector(
-            self.policy_net(self.policy_net.formInput(self.observation))
+            self.policy_net.forward(self.policy_net.formInput(self.observation), False)
         )  # run the forward function of the policy network to get the action
         observation_next, reward, done, info = self._env.step(
             action

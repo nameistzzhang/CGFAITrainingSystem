@@ -21,13 +21,13 @@ class TrainManager:
                 env_adapter.closeEnv()
                 break
 
-    def runPolicyGradient(self, epoch_):
+    def runPolicyGradient(self, epoch_, w_print):
         
         policy_gradient = PolicyGradient()
 
         policy_gradient.loadGameInfo()
 
-        loss, even_reward = policy_gradient.learn()
+        loss, even_reward = policy_gradient.learn(w_print)
 
         
 

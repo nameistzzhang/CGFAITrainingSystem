@@ -17,8 +17,9 @@ class PolicyNet(nn.Module):
         self.fc1 = nn.Linear(self.input_size, 16)  # Two Linear layers
         self.fc2 = nn.Linear(16, 32)
         self.fc3 = nn.Linear(32, 64)
-        self.fc4 = nn.Linear(64, 32)
-        self.fc5 = nn.Linear(32, self.output_size)
+        self.fc4 = nn.Linear(64, 128)
+        self.fc5 = nn.Linear(128, 32)
+        self.fc6 = nn.Linear(32, self.output_size)
         # self.fc4 = nn.Conv1d(  # Two Convolutional layers
         #     in_channels=1,
         #     out_channels=4,
@@ -52,14 +53,21 @@ class PolicyNet(nn.Module):
         input_tensor = torch.tensor(input_list_)
         input_tensor = input_tensor.view(1, self.input_size)
         return input_tensor
+    
+    def softmax(self, x):
+        x_max = torch.max(x, dim=1, keepdim=True).values
+        x_exp = torch.exp(x - x_max)
+        partition = torch.sum(x_exp, dim=1, keepdim=True)
+        return x_exp / partition
 
     # The forward function
-    def forward(self, x):
+    def forward(self, x, w_print):
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = F.relu(self.fc3(x))
         x = F.relu(self.fc4(x))
         x = F.relu(self.fc5(x))
+        x = F.relu(self.fc6(x))
         # x = self.fc4(x)
         # x = self.fc5(x)
         # x = self.fc6(x)
@@ -67,8 +75,11 @@ class PolicyNet(nn.Module):
         # x = F.relu(self.fc7(x))
         # x = F.relu(self.fc8(x))
         # x = F.relu(self.fc9(x))
-        # print("before softmax : ", x)
-        x = F.softmax(x, dim=1)
+        if w_print :
+            print("before softmax : ", x, end="")
+        x = self.softmax(x)
+        if w_print :
+            print("after softmax : ", x)
         return x
 
     # select action according to the output of the policy network

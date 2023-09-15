@@ -55,7 +55,9 @@ class PolicyGradient :
         # establish the return_list
         cur_return = 0
         for i in reward_list[::-1] :
-            i = float(i) / 100
+            i = float(i)
+            if i < -10 :
+                i /= -10
             self._reward_list.appendleft(i)
             self._total_reward += i
             cur_return = i + GAMMA * cur_return
@@ -65,7 +67,7 @@ class PolicyGradient :
 
     
     # Based on the Info refresh the policy network
-    def learn(self) :
+    def learn(self, w_print) :
 
         loss = 0
         cur_output = 0
@@ -76,13 +78,13 @@ class PolicyGradient :
         for i in range(len(self._state_list)) :
 
             # forward
-            cur_output = self._policy_net(self._policy_net.formInput(self._state_list[i]))
+            cur_output = self._policy_net.forward(self._policy_net.formInput(self._state_list[i]), w_print)
 
             # probability of the action
             cur_action_prob = cur_output[0][self._action_list[i]]
 
             # loss function
-            cur_loss = - torch.log(cur_action_prob) * (self._return_list[i] - baseline)
+            cur_loss = - torch.log(cur_action_prob) * (self._return_list[i])
 
             loss += cur_loss
 
@@ -93,6 +95,10 @@ class PolicyGradient :
         optimizer = optim.Adam(self._policy_net.parameters(), lr=LR)
         optimizer.zero_grad()
         loss.backward()
+
+        if (w_print):
+            print("gradient", self._policy_net.fc4.weight.grad)
+            a = input()
 
         optimizer.step()
 
