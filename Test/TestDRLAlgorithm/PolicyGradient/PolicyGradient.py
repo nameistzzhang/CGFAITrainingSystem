@@ -10,7 +10,7 @@ import numpy as np
 
 # Hyper parameters
 
-GAMMA = 0.9
+GAMMA = 0.99
 LR = 0.01
 
 class PolicyGradient :
@@ -55,9 +55,7 @@ class PolicyGradient :
         # establish the return_list
         cur_return = 0
         for i in reward_list[::-1] :
-            i = float(i)
-            if i < -10 :
-                i /= -10
+            i = float(i) / 10
             self._reward_list.appendleft(i)
             self._total_reward += i
             cur_return = i + GAMMA * cur_return
@@ -84,7 +82,7 @@ class PolicyGradient :
             cur_action_prob = cur_output[0][self._action_list[i]]
 
             # loss function
-            cur_loss = - torch.log(cur_action_prob) * (self._return_list[i])
+            cur_loss = - torch.log(cur_action_prob) * (self._return_list[i] - baseline)
 
             loss += cur_loss
 
@@ -92,7 +90,7 @@ class PolicyGradient :
 
         loss /= len(self._state_list)
 
-        optimizer = optim.Adam(self._policy_net.parameters(), lr=LR)
+        optimizer = optim.Adam(self._policy_net.parameters(), lr=LR, weight_decay=0.01)
         optimizer.zero_grad()
         loss.backward()
 
